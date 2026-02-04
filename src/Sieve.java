@@ -1,3 +1,4 @@
+import java.net.SocketPermission;
 import java.util.Scanner;
 
 public class Sieve {
@@ -9,17 +10,24 @@ public class Sieve {
     boolean[] isPrime = new boolean[n+1];
 
 
+    for (int i = 2; i <= n; i++){
+        isPrime[i] = true;
+    }
     for(int i = 2; i*i < n+1; i++){
        if( isPrime[i] ){
-        isPrime[i] = true;
         
         for(int j = i*i; j < n+1; j += i){
-            isPrime[j]= false; 
+                isPrime[j]= false; 
 
                 
             }
         }
-       }
+    }
+    for(int i = 2; i <= n; i++){
+        if(isPrime[i]){
+            System.out.println("Prime: "+ i);
+        }
+    }
       
 
     
